@@ -14,6 +14,7 @@ Tensorflow implement of GANs
 |   Type   | MNIST_Digit|MNIST_Fashion|
 |:------------:|:------------:|:-------------------:|
 |CGAN| ![](https://github.com/qzq2514/GAN/blob/master/Mnist_Based/pictures/CGAN_mnist.jpg)    | ![](https://github.com/qzq2514/GAN/blob/master/Mnist_Based/pictures/CGAN_fashion.jpg) |
+|LapGAN| ![](https://github.com/qzq2514/GAN/blob/master/Mnist_Based/pictures/LapGAN_mnist.jpg)    | ![](https://github.com/qzq2514/GAN/blob/master/Mnist_Based/pictures/LapGAN_fashion.jpg) |
 |DCGAN| ![](https://github.com/qzq2514/GAN/blob/master/Mnist_Based/pictures/DCGAN_mnist.jpg)    | ![](https://github.com/qzq2514/GAN/blob/master/Mnist_Based/pictures/DCGAN_fashion.jpg) |
 |ACGAN| ![](https://github.com/qzq2514/GAN/blob/master/Mnist_Based/pictures/ACGAN_mnist.jpg)    | ![](https://github.com/qzq2514/GAN/blob/master/Mnist_Based/pictures/ACGAN_fashion.jpg) |
 |InfoGAN| ![](https://github.com/qzq2514/GAN/blob/master/Mnist_Based/pictures/infoGAN_mnist.jpg)    |![](https://github.com/qzq2514/GAN/blob/master/Mnist_Based/pictures/infoGAN_fashion.jpg)  |
