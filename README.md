@@ -19,6 +19,9 @@ Tensorflow implement of GANs
 |InfoGAN| ![](https://github.com/qzq2514/GAN/blob/master/Mnist_Based/pictures/infoGAN_mnist.jpg)    |![](https://github.com/qzq2514/GAN/blob/master/Mnist_Based/pictures/infoGAN_fashion.jpg)  |
 |DRAGAN| ![](https://github.com/qzq2514/GAN/blob/master/Mnist_Based/pictures/DRAGAN_mnist.jpg)    | ![](https://github.com/qzq2514/GAN/blob/master/Mnist_Based/pictures/DRAGAN_fashion.jpg) |
 |LSGAN| ![](https://github.com/qzq2514/GAN/blob/master/Mnist_Based/pictures/LSGAN_mnist.jpg)    | ![](https://github.com/qzq2514/GAN/blob/master/Mnist_Based/pictures/LSGAN_fashion.jpg) |
+|SGAN| ![](https://github.com/qzq2514/GAN/blob/master/Mnist_Based/pictures/SGAN_mnist.jpg)    | ![](https://github.com/qzq2514/GAN/blob/master/Mnist_Based/pictures/SGAN_fashion.jpg) |
+|WGAN| ![](https://github.com/qzq2514/GAN/blob/master/Mnist_Based/pictures/WGAN_mnist.jpg)    | ![](https://github.com/qzq2514/GAN/blob/master/Mnist_Based/pictures/WGAN_fashion.jpg) |
+|WGAN-GP| ![](https://github.com/qzq2514/GAN/blob/master/Mnist_Based/pictures/WGAN-GP_mnist.jpg)    | ![](https://github.com/qzq2514/GAN/blob/master/Mnist_Based/pictures/WGAN-GP_fashion.jpg) |
 
 
 ### test on cartoon pictures
