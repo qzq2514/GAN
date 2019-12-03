@@ -1,6 +1,14 @@
 # GAN
 Tensorflow implement of GANs 
 
+# Requirements
+Python 3.5
+TensorFlow 1.12.0
+Opencv-python 3.4.5.20
+
+# Usage
+Each GAN can be trained by run "train_XXXGAN.py" and evaled by "eval_XXXGAN.py" directly.
+
 ### GAN without Condition
 |   Type   | MNIST_Digit|MNIST_Fashion|
 |:------------:|:------------:|:-------------------:|
