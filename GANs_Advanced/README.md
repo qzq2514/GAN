@@ -14,8 +14,8 @@ transfer SVHN data to MNIST data
 ![](https://github.com/qzq2514/GAN/blob/master/GANs_Advanced/pictures/DTN_result.jpg)
 
 # DiscoGAN
-result
+result  
 |   Edge2Shoes   | Shoes2Edge|
 |:------------:|:-------------------:|
-| my classification    |        99.6        | 
-|    MobileNetV1   |        99.3        | 
+| my https://github.com/qzq2514/GAN/blob/master/GANs_Advanced/pictures/DiscoGAN_A2B.jpg    |       
+ my https://github.com/qzq2514/GAN/blob/master/GANs_Advanced/pictures/DiscoGAN_A2B.jpg        | 
