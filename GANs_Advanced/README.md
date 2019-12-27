@@ -13,9 +13,7 @@ Each GAN can be trained by run "train_XXX.py" and evaled by "eval_XXX.py" direct
 transfer SVHN data to MNIST data 
 ![](https://github.com/qzq2514/GAN/blob/master/GANs_Advanced/pictures/DTN_result.jpg)
 
-# DiscoGAN
-result  
-|   Edge2Shoes   | Shoes2Edge|
-|:------------:|:-------------------:|
-| my https://github.com/qzq2514/GAN/blob/master/GANs_Advanced/pictures/DiscoGAN_A2B.jpg    |       
- my https://github.com/qzq2514/GAN/blob/master/GANs_Advanced/pictures/DiscoGAN_A2B.jpg        | 
+# DiscoGAN  
+|   Edge2Shoes   | Shoes2Edge|  
+|:------------:|:-------------------:|  
+| ![](https://github.com/qzq2514/GAN/blob/master/GANs_Advanced/pictures/DiscoGAN_A2B.jpg)    |![](https://github.com/qzq2514/GAN/blob/master/GANs_Advanced/pictures/DiscoGAN_B2A.jpg)        | 
