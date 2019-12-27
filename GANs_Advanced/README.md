@@ -12,3 +12,10 @@ Each GAN can be trained by run "train_XXX.py" and evaled by "eval_XXX.py" direct
 # DTN(Domain Transfer Net)
 transfer SVHN data to MNIST data 
 ![](https://github.com/qzq2514/GAN/blob/master/GANs_Advanced/pictures/DTN_result.jpg)
+
+# DiscoGAN
+result
+|   Edge2Shoes   | Shoes2Edge|
+|:------------:|:-------------------:|
+| my classification    |        99.6        | 
+|    MobileNetV1   |        99.3        | 
