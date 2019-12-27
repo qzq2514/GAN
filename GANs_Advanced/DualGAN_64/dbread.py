@@ -3,7 +3,7 @@ from scipy import misc
 from os import listdir
 from os.path import isfile, join
 
-
+#Reference: https://github.com/HyeongminLEE/Tensorflow_DiscoGAN/blob/master/dbread.py
 class DBreader:
     def __init__(self, filedir, batch_size, resize=0, labeled=True, color=True, shuffle=True):
         self.color = color
