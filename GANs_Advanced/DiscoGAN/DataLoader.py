@@ -41,7 +41,7 @@ class Pix2Pix_loader:
         images_A=np.array(images_A)
         images_B=np.array(images_B)
         np.random.shuffle(images_A)
-        np.random.shuffle(images_A)
+        np.random.shuffle(images_B)
         return np.array(images_A),np.array(images_B)
 
     def random_next_test_batch(self):
