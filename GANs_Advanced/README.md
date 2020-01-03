@@ -23,5 +23,10 @@ transfer SVHN data to MNIST data
 |:------------:|:-------------------:|  
 | ![](https://github.com/qzq2514/GAN/blob/master/GANs_Advanced/pictures/DualGAN_A2B.jpg)    |![](https://github.com/qzq2514/GAN/blob/master/GANs_Advanced/pictures/DualGAN_B2A.jpg)        | 
 
+# CycleGAN  
+|   Edge2Shoes   | Shoes2Edge|  
+|:------------:|:-------------------:|  
+| ![](https://github.com/qzq2514/GAN/blob/master/GANs_Advanced/pictures/Cycle_A2B.jpg)    |![](https://github.com/qzq2514/GAN/blob/master/GANs_Advanced/pictures/CycleGAN_B2A.jpg)        | 
+
 
 
