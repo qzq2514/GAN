@@ -3,11 +3,11 @@ import tensorflow.contrib.slim as slim
 import numpy as np
 
 class CycleGAN:
-    def __init__(self,is_training,keep_prob,lambda_reconst):
+    #is_training
+    def __init__(self,is_training,lambda_reconst):
         self.is_training = is_training
         self.epsilon = 1e-5
         self.weight_decay = 0.00001
-        self.keep_prob = keep_prob
         self.lambda_reconst = lambda_reconst
         self.REAL_LABEL=0.9
 
@@ -143,7 +143,7 @@ class CycleGAN:
         dis_B_vars = [var for var in all_vars if var.name.startswith("discriminator_B")]
         return gen_A2B_vars,gen_B2A_vars,dis_A_vars,dis_B_vars
 
-    def build_DiscoGAN(self,input_A,input_B):
+    def build_DiscoGAN(self,input_A,input_B,fake_pool_A_place,fake_pool_B_place):
         #归一化
         input_A_pre = self.preprocess(input_A, scale=True)
         input_B_pre = self.preprocess(input_B, scale=True)
@@ -153,31 +153,35 @@ class CycleGAN:
         ABA = self.generator(AB,"generator_BA")
 
         AB_prob = self.discriminator(AB, "discriminator_B")
+        fake_B_prob = self.discriminator(fake_pool_B_place, "discriminator_B", reuse=True)
         B_prob = self.discriminator(input_B_pre, "discriminator_B", reuse=True)
         reconst_A_loss = tf.reduce_mean(tf.abs(ABA-input_A_pre))  # L1
         fake_Gen_AB_loss = tf.reduce_mean(tf.squared_difference(AB_prob, self.REAL_LABEL))
-        fake_Dis_AB_loss = tf.reduce_mean(tf.square(AB_prob))
+        fake_pool_B_loss = tf.reduce_mean(tf.square(fake_B_prob))
         real_Dis_B_loss  = tf.reduce_mean(tf.squared_difference(B_prob, self.REAL_LABEL))
-        Dis_B_loss = fake_Dis_AB_loss + real_Dis_B_loss
+        Dis_B_loss = fake_pool_B_loss + real_Dis_B_loss
 
         # Domain B --> Domain A
         BA  = self.generator(input_B_pre, "generator_BA",reuse=True)
         BAB  = self.generator(BA, "generator_AB",reuse=True)
 
         BA_porb = self.discriminator(BA, "discriminator_A")
+        fake_A_prob = self.discriminator(fake_pool_A_place, "discriminator_A", reuse=True)
         A_prob = self.discriminator(input_A_pre, "discriminator_A", reuse=True)
         reconst_B_loss = tf.reduce_mean(tf.abs(BAB-input_B_pre))
         fake_Gen_BA_loss = tf.reduce_mean(tf.squared_difference(BA_porb, self.REAL_LABEL))
-        fake_Dis_BA_loss = tf.reduce_mean(tf.square(BA_porb))
+        fake_pool_A_loss = tf.reduce_mean(tf.square(fake_A_prob))
         real_Dis_A_loss  = tf.reduce_mean(tf.squared_difference(A_prob, self.REAL_LABEL))
-        Dis_A_loss = fake_Dis_BA_loss + real_Dis_A_loss
+        Dis_A_loss = fake_pool_A_loss + real_Dis_A_loss
 
         #generate loss
         cycle_loss = reconst_A_loss+reconst_B_loss
         Gen_AB_loss = fake_Gen_AB_loss + self.lambda_reconst * cycle_loss
         Gen_BA_loss = fake_Gen_BA_loss + self.lambda_reconst * cycle_loss
 
-        return Gen_AB_loss,Gen_BA_loss,Dis_A_loss,Dis_B_loss
+        fake_A = BA
+        fake_B = AB
+        return Gen_AB_loss,Gen_BA_loss,Dis_A_loss,Dis_B_loss,fake_A,fake_B
 
     def sample_generate(self,input,type="A2B"):
         if type=="A2B":
