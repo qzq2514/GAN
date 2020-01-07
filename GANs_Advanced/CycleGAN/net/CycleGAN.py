@@ -143,7 +143,7 @@ class CycleGAN:
         dis_B_vars = [var for var in all_vars if var.name.startswith("discriminator_B")]
         return gen_A2B_vars,gen_B2A_vars,dis_A_vars,dis_B_vars
 
-    def build_DiscoGAN(self,input_A,input_B,fake_pool_A_place,fake_pool_B_place):
+    def build_CycleGAN(self,input_A,input_B,fake_pool_A_place,fake_pool_B_place):
         #归一化
         input_A_pre = self.preprocess(input_A, scale=True)
         input_B_pre = self.preprocess(input_B, scale=True)

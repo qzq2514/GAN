@@ -91,7 +91,7 @@ class DualGAN:
         d_vars = [var for var in all_vars if var.name.startswith("discriminator_")]
         return g_vars, d_vars
 
-    def build_DiscoGAN(self,input_A,input_B):
+    def build_DualGAN(self,input_A,input_B):
         #归一化
         input_A_pre = self.preprocess(input_A, scale=True)
         input_B_pre = self.preprocess(input_B, scale=True)

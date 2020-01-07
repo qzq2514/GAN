@@ -55,7 +55,7 @@ def train():
     cycleGAN = CycleGAN(is_training_place,lambda_reconst)
 
     Gen_AB_loss, Gen_BA_loss, Dis_A_loss, Dis_B_loss,fake_A,fake_B= \
-        cycleGAN.build_DiscoGAN(input_A_place,input_B_place,
+        cycleGAN.build_CycleGAN(input_A_place,input_B_place,
                                 fake_pool_A_place,fake_pool_B_place)
 
     gen_A2B_vars, gen_B2A_vars, dis_A_vars, dis_B_vars = cycleGAN.get_vars()

@@ -42,19 +42,19 @@ def train():
     is_training_place = tf.placeholder(tf.bool, shape=(),name="is_training")
     keep_prob_place = tf.placeholder_with_default(1.0, shape=(),name="keep_prob")
 
-    discoGan = DualGAN(is_training_place,keep_prob_place,lambda_reconst)
+    dualgan = DualGAN(is_training_place,keep_prob_place,lambda_reconst)
 
-    G_loss,D_loss = discoGan.build_DiscoGAN(input_A_place,input_B_place)
+    G_loss,D_loss = dualgan.build_DualGAN(input_A_place,input_B_place)
 
-    g_vars,d_vars = discoGan.get_vars()
+    g_vars,d_vars = dualgan.get_vars()
     global_step = tf.Variable(-1, trainable=False,name="global_step")
     global_step_increase = tf.assign(global_step, tf.add(global_step, 1))
     train_op_D = tf.train.RMSPropOptimizer(learning_rate, decay=decay).minimize(D_loss, var_list=d_vars)
     train_op_G = tf.train.RMSPropOptimizer(learning_rate, decay=decay).minimize(G_loss, var_list=g_vars)
 
-    A2B_out,ABA_out = discoGan.sample_generate(input_A_place, "A2B")
+    A2B_out,ABA_out = dualgan.sample_generate(input_A_place, "A2B")
     A2B_output = tf.identity(A2B_out, name="A2B_output")
-    B2A_out,BAB_out = discoGan.sample_generate(input_B_place, "B2A")
+    B2A_out,BAB_out = dualgan.sample_generate(input_B_place, "B2A")
     B2A_output = tf.identity(B2A_out, name="B2A_output")
 
     saver = tf.train.Saver()
