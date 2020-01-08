@@ -50,7 +50,7 @@ class CycleGAN:
             # norm1 = slim.batch_norm(conv1, decay=0.9, is_training=is_training, epsilon=1e-5,
             #                         scale=True, updates_collections=None, activation_fn=tf.nn.relu)
         with tf.variable_scope(scope_name+"/layer2") as scope:
-            padded2 = tf.pad(norm1,[[0,0],[1,1],[1,1],[0,0]],mode="REFLECT")
+            padded2 = tf.pad(relu1,[[0,0],[1,1],[1,1],[0,0]],mode="REFLECT")
             conv2 = slim.conv2d(padded2,k,[3,3],[1,1],padding="VALID")
             norm2 = self.instance_norm(conv2)
             # norm2 = slim.batch_norm(conv2, decay=0.9, is_training=is_training, epsilon=1e-5,
