@@ -48,9 +48,8 @@ def train():
     fake_pool_A_place = tf.placeholder(tf.float32, shape=[None, image_height,image_width, 3], name="fake_pool_A")
     fake_pool_B_place = tf.placeholder(tf.float32, shape=[None, image_height, image_width, 3], name="fake_pool_B")
     is_training_place = tf.placeholder(tf.bool, shape=(),name="is_training")
-    keep_prob_place = tf.placeholder_with_default(1.0, shape=(),name="keep_prob")
 
-    cycleGAN = CycleGAN(is_training_place,keep_prob_place,lambda_reconst)
+    cycleGAN = CycleGAN(is_training_place,lambda_reconst)
 
     Gen_AB_loss, Gen_BA_loss, Dis_A_loss, Dis_B_loss,fake_A,fake_B= \
         cycleGAN.build_CycleGAN(input_A_place,input_B_place,
@@ -94,12 +93,12 @@ def train():
             images_A,images_B = dataLoader.next_batch()
 
             feed_dict_pool = {input_A_place:images_A,input_B_place:images_B,
-                               is_training_place:True,keep_prob_place:0.5}
+                               is_training_place:True}
 
             fake_A_vals, fake_B_vals = sess.run([fake_A,fake_B],feed_dict=feed_dict_pool)
 
             feed_dict_train = {input_A_place: images_A, input_B_place: images_B,
-                              is_training_place: True, keep_prob_place: 0.5,
+                              is_training_place: True,
                                fake_pool_A_place: fake_A_pool.query(fake_A_vals),
                                fake_pool_B_place: fake_B_pool.query(fake_B_vals)}
                                
@@ -120,7 +119,7 @@ def train():
 
                 #save result form A to B
                 _A2B_output,_ABA_out = sess.run([A2B_output,ABA_out],feed_dict={input_A_place:test_images_A,
-                                     is_training_place:False,keep_prob_place:1.0})
+                                     is_training_place:False})
                 _A2B_output = (_A2B_output + 1) / 2 * 255.0
                 _ABA_out = (_ABA_out + 1) / 2 * 255.0
                 for ind,trg_image in enumerate(_A2B_output[:sample_num]):
@@ -130,7 +129,7 @@ def train():
 
                 # save result form B to A
                 _B2A_output,_BAB_out = sess.run([B2A_output,BAB_out], feed_dict={input_B_place: test_images_B,
-                                     is_training_place: False, keep_prob_place: 1.0})
+                                     is_training_place: False})
                 _B2A_output = (_B2A_output + 1) / 2 * 255.0
                 _BAB_out = (_BAB_out + 1) / 2 * 255.0
                 for ind,trg_image in enumerate(_B2A_output[:sample_num]):
