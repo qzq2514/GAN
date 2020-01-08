@@ -28,10 +28,11 @@ transfer SVHN data to MNIST data
 |:------------:|:-------------------:|  
 | ![](https://github.com/qzq2514/GAN/blob/master/GANs_Advanced/pictures/CycleGAN_A2B.jpg)    |![](https://github.com/qzq2514/GAN/blob/master/GANs_Advanced/pictures/CycleGAN_B2A.jpg)        | 
 
-# Pix2Pix  
+# Pix2Pix         
 |   Edge2Shoes   | Shoes2Edge|  
 |:------------:|:-------------------:|  
-| ![](https://github.com/qzq2514/GAN/blob/master/GANs_Advanced/pictures/Pix2Pix_A2B.jpg)    |![](https://github.com/qzq2514/GAN/blob/master/GANs_Advanced/pictures/Pix2Pix_B2A.jpg)        | 
+| ![](https://github.com/qzq2514/GAN/blob/master/GANs_Advanced/pictures/Pix2Pix_A2B.jpg)    |![](https://github.com/qzq2514/GAN/blob/master/GANs_Advanced/pictures/Pix2Pix_B2A.jpg)        |  
 
+Unlike DiscoGAN、DualGAN and CycleGAN,Pix2Pix needs paired data to train and it can only generate picture from one domain to another,so I train Edge2Shoes and Shoes2Edge Separately.
 
 
