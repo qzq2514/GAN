@@ -99,8 +99,14 @@ class Pix2Pix:
         #Domain A --> Domain B
         AB = self.generator(input_A_pre)
 
+        #原论文pix2pix对在语义图像转现实图像的实验上,分别需要将语义图和生成的现实图像和原本的真实图像在
+        #通道维度上拼接再送入判别器判别(这和之前使用cGAN生成MNIST是一样的想法)
+        #本实验以shoes2edge和edge2shoe为例,不牵扯语义图,故未进行拼接
+        #AB = tf.concat([input_A_pre, AB], 3)
+        #input_B_pre = tf.concat([input_A_pre, input_B_pre], 3)
         AB_logits = self.discriminator(AB)
         B_logits = self.discriminator(input_B_pre, reuse=True)
+        
         reconst_B_loss = tf.reduce_mean(tf.abs(input_B_pre - AB))
         fake_Gen_AB_loss = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(
                         logits=AB_logits, labels=tf.ones_like(AB_logits)))
