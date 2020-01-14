@@ -37,4 +37,5 @@ Unlike DiscoGAN、DualGAN and CycleGAN,Pix2Pix needs paired data to train and it
 
 # CartoonGAN
 ![](https://github.com/qzq2514/GAN/blob/master/GANs_Advanced/pictures/CartoonGAN.jpg)
+Every two images form left to right in each grid represent realistic picture and its cartoonized counterpart.
 
