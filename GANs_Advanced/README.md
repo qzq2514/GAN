@@ -35,4 +35,6 @@ transfer SVHN data to MNIST data
 
 Unlike DiscoGAN、DualGAN and CycleGAN,Pix2Pix needs paired data to train and it can only generate picture from one domain to another,so I train Edge2Shoes and Shoes2Edge Separately.
 
+# CartoonGAN
+![](https://github.com/qzq2514/GAN/blob/master/GANs_Advanced/pictures/CartoonGAN.jpg)
 
