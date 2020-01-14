@@ -89,10 +89,10 @@ def train():
             saver.restore(sess, os.path.join(ckpt_path, ckpt_name))
 
         _global_step = sess.run(global_step_increase)
-        database_A = db.DBreader(db_dir_A, batch_size=batch_size, labeled=False, resize=[64, 64])
-        db_for_vis_A = db.DBreader(db_dir_A, batch_size=batch_size, labeled=False, resize=[64, 64])
-        database_B = db.DBreader(db_dir_B, batch_size=batch_size, labeled=False, resize=[64, 64])
-        db_for_vis_B = db.DBreader(db_dir_B, batch_size=batch_size, labeled=False, resize=[64, 64])
+        database_A = db.DBreader(db_dir_A, batch_size=batch_size, labeled=False, resize=[image_height, image_width])
+        db_for_vis_A = db.DBreader(db_dir_A, batch_size=batch_size, labeled=False, resize=[image_height, image_width])
+        database_B = db.DBreader(db_dir_B, batch_size=batch_size, labeled=False, resize=[image_height, image_width])
+        db_for_vis_B = db.DBreader(db_dir_B, batch_size=batch_size, labeled=False, resize=[image_height, image_width])
 
         while _global_step<Train_Step:
             images_A = database_A.next_batch()
