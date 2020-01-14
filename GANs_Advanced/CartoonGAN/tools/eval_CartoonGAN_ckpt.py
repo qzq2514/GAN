@@ -32,7 +32,7 @@ def eval():
             reality = reality[np.newaxis,:]
             
 
-            cartoon_output = sess.run(Cartoon_output, feed_dict={input_reality_place: reality,is_training:True})
+            cartoon_output = sess.run(Cartoon_output, feed_dict={input_reality_place: reality,is_training:False})
             cartoon_output = (cartoon_output + 1) / 2 * 255.0
             cartoon_output[cartoon_output>255]=255 
             cartoon_output[cartoon_output<0]=0 
