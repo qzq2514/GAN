@@ -43,15 +43,6 @@ class CartoonGAN:
         VGG_loss = VGG_loss/(h*w*c)
         return VGG_loss
 
-    def res_block(self,input_tensor, channel, is_train=False):
-        short_cut = input_tensor
-        res_conv1 = slim.conv2d(input_tensor, channel, [3, 3], activation_fn=None)
-        res_norm1 = batch_norm(res_conv1, training=is_train)
-        res_relu1 = tf.nn.relu(res_norm1)
-        res_conv2 = slim.conv2d(res_relu1, channel, [3, 3], activation_fn=None)
-        res_norm2 = batch_norm(res_conv2, training=is_train)
-        return res_norm2 + short_cut
-
     def generator(self,inputs,name_scope,reuse=False):
         print("CartoonGAN_loss_generator")
         with tf.variable_scope(name_scope,reuse=reuse) as scope:
